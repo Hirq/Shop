@@ -1,0 +1,107 @@
+<nav class="navbar navbar-light" style="background-color: #white;">
+  <div id="navbarleft">
+    <div>
+      <a class="navbar-brand"  href="efekty" style="color: #fd4901dc">
+        <mat-icon>crop_7_5</mat-icon>
+        Efekty
+      </a>
+    </div>
+    <div>
+        <a class="navbar-brand"  href="gitary">
+        Gitary
+        </a>
+    </div>
+  </div>
+
+    <a class="navbar-brand" href="efekty" >
+      <img class="card-img-top" src="https://pbs.twimg.com/profile_images/946294409037058048/b56R6fiH_400x400.jpg" alt="Card image cap">
+    </a>
+
+  <div id="navbarright">
+    <a class="navbar-brand" href="basket"> 
+      <mat-icon>shopping_basket</mat-icon>
+      Koszyk
+    </a>
+    <a class="navbar-brand" href="login">
+      <mat-icon>portrait</mat-icon>
+        Zaloguj
+    </a>
+  </div>
+
+</nav>
+
+
+
+<mat-tab-group mat-stretch-tabs>
+
+
+    
+    <mat-tab label="Wszystko"> 
+        <div class="grid2x2">
+            <div *ngFor="let effect of effects">
+                <div class="box box1 ">
+                    <div class="boxin">
+                        <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{effect.effect_name}}</h5>
+                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
+                            <mat-icon>shopping_basket</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Compresor"> 
+        <div class="grid2x2">
+            <div *ngFor="let effect of compressors">
+                <div class="box box1 ">
+                    <div class="boxin">
+                        <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{effect.effect_name}}</h5>
+                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
+                            <mat-icon>shopping_basket</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Distortion"> 
+        <div class="grid2x2">
+            <div *ngFor="let effect of distortions">
+                <div class="box box1 ">
+                    <div class="boxin">
+                        <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{effect.effect_name}}</h5>
+                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
+                            <mat-icon>shopping_basket</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Octave"> 
+        <div class="grid2x2">
+            <div *ngFor="let effect of octavers">
+                <div class="box box1 ">
+                    <div class="boxin">
+                        <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{effect.effect_name}}</h5>
+                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
+                            <mat-icon>shopping_basket</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+

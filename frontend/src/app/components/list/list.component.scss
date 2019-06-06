@@ -1,0 +1,32 @@
+#list {
+    display: inline-grid;
+    width: 20%;
+    float: left;
+}
+
+#elements {
+    width: 70%;
+    float:right;
+}
+
+.card {
+    width: 40rem;
+    margin-bottom: 35px;
+    height: 100%;
+}
+
+.card-img-top {
+    width: 390px;
+    height: 400px;
+}
+
+#przycisk {
+    bottom: 0;
+    margin-bottom: 20px;
+    width: 90%;
+    position: absolute;
+}
+
+.col {
+    margin-bottom: 30px;
+}

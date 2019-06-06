@@ -1,0 +1,25 @@
+{% extends 'shop/base.html' %}
+{% block content %}
+
+<div class="container-fluid" style="margin-bottom:40px;">      
+    <div class="container" id="elements">
+        <div class="row">
+            {% for effect in distlist %}
+                {% if effect.effect_group == "DIS" %}
+                    <div class="col">
+                        <div class="card">  
+                            <img class="card-img-top" src="{{effect.effect_photo.url}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ effect.effect_name }}</h5>
+                                <h6 class="card-subtitle">{{effect.effect_price}}$</h6>
+                                <p class="card-text">{{effect.effect_description}}</p>
+                                <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
