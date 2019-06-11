@@ -11,14 +11,14 @@
         Gitary
         </a>
     </div>
-  </div>
+    </div>
 
     <a class="navbar-brand" href="efekty" >
       <img class="card-img-top" src="https://pbs.twimg.com/profile_images/946294409037058048/b56R6fiH_400x400.jpg" alt="Card image cap">
     </a>
 
-  <div id="navbarright">
-    <a class="navbar-brand" href="basket"> 
+    <div id="navbarright">
+    <a class="navbar-brand" href="http://localhost:8000/cart/"> 
       <mat-icon>shopping_basket</mat-icon>
       Koszyk
     </a>
@@ -45,7 +45,13 @@
                         <div class="card-body">
                             <h5 class="card-title">{{effect.effect_name}}</h5>
                             <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
-                            <mat-icon>shopping_basket</mat-icon>
+                            <div>
+                                <a class="navbar-brand"  href="http://localhost:8000/{{effect.effect_id}}/1/">
+                                KUP
+                                <mat-icon>shopping_basket</mat-icon>
+                                </a>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,8 @@ ALLOWED_HOSTS = ['effectsshop.herokuapp.com','127.0.0.1','localhost']
 
 INSTALLED_APPS = [
     'shop',
-
+    'cart',
+    'bootstrap3',
 
     'rest_framework',
     'corsheaders',
@@ -149,3 +150,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR)
 #         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
 #     ]
 # }
+
+CART_SESSION_ID = 'cart'

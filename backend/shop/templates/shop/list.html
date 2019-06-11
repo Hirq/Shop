@@ -1,0 +1,42 @@
+{% extends "shop/base1.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    {% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-3">
+            <h3>Categories</h3>
+            <ul class="nav nav-pills nav-stacked">
+
+                    <a href="{% url "product_list" %}">All</a></li>
+
+
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <a href="{{ product.get_absolute_url }}">
+                                <img src="{% if product.image %}{{ product.image.url }}
+                                          {% else %}{% static "img/no_image.png" %} {% endif %}">
+                            </a>
+                            <a href="{{ product.get_absolute_url }}">{{ product.effect_name }}</a><br>
+                            ${{ product.effect_price }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+
+
+    </div>
+{% endblock %}
