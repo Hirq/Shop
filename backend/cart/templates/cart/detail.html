@@ -1,12 +1,11 @@
+{% extends "shop/base1.html" %}
 
 {% load staticfiles %}
 {% load bootstrap3 %}
-{% block title %}
-    Your shopping cart
-{% endblock %}
 
 {% block content %}
-    <h1>Your shopping cart</h1>
+            
+
 
     <div class="row">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
@@ -68,6 +67,7 @@
                     <td>  </td>
                     <td>  </td>
                     <td><h3>Total</h3></td>
+                    <td class="text-right"><h3><strong>${{ cart.get_total_price }}</strong></h3></td>
                 </tr>
                 <tr>
                     <td>  </td>
@@ -78,7 +78,11 @@
                             Continue Shopping <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
                         </a>
                     </td>
-
+                    <td>
+                            <a href="http://localhost:4200/efekty" class="btn btn-default">
+                                Kup<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+                            </a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

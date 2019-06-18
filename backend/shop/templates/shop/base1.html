@@ -5,27 +5,56 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+
     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    {% bootstrap_css %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'cart/style.css' %}"> 
+    <!-- {% bootstrap_css %} -->
     {% bootstrap_javascript %}
-
 </head>
+
 <body>
 
-<div class="container">
-    <div class="page-header">
-        <a href="/"><h1>My shop</h1></a>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            {# call __len__ #}
+    <nav class="navbar navbar-light" style="color: rgba(253, 73, 1, 0.863)">
+            <div id="navbarleft">
+                <div>
+                    <a class="navbar-brand"  href="http://localhost:4200/efekty" style="color: #fd4901dc">
+                        Efekty
+                    </a>
+                </div>
+                <div>
+                    <a class="navbar-brand"  href="http://localhost:4200/gitary">
+                        Gitary
+                    </a>
+                </div>
+            </div>
+        
+                <a class="navbar-brand" href="http://localhost:4200/efekty">
+                    <img class="card-img-top" src="https://pbs.twimg.com/profile_images/946294409037058048/b56R6fiH_400x400.jpg" alt="Card image cap">
+                </a>
+            <div id="navbarright">
+                <a class="navbar-brand" href="http://localhost:8000/cart/"> 
+                    <i class="material-icons">shopping_basket</i>
+                    Koszyk
+                </a>
+                <a class="navbar-brand" href="login"> 
+                    <i class="material-icons">portrait</i>
+                    Zaloguj
+                </a>
+            </div>
+        </nav>
+
+<div class="container" >
+    
+    <div class="panel panel-default" >
+        <div class="panel-heading" style="text-align: center">
+
             {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
-                    Your cart:
-                    <a href="{% url "cart:cart_detail" %}">
-                        {# If total_items is 1, the output will be 1 item. #}
-                        {# If total_items is 2, the output will be 2 items. #}
+                    Your cart: 
+                    <a id="cena" href="{% url "cart_detail" %}">
                         {{ total_items }} item{{ total_items|pluralize }},
                         ${{ cart.get_total_price }}
                     </a>

@@ -1,8 +1,7 @@
-<nav class="navbar navbar-light" style="background-color: #white;">
+<nav class="navbar navbar-light" style="background-color: #ffffff;">
   <div id="navbarleft">
     <div>
       <a class="navbar-brand"  href="efekty" style="color: #fd4901dc">
-        <mat-icon>crop_7_5</mat-icon>
         Efekty
       </a>
     </div>
@@ -41,7 +40,7 @@
             <div *ngFor="let effect of effects">
                 <div class="box box1 ">
                     <div class="boxin">
-                        <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
+                        <img class="card-img-top" src={{effect.effect_photo}}  alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{effect.effect_name}}</h5>
                             <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
