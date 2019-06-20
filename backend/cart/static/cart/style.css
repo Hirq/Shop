@@ -2,87 +2,20 @@
     margin-top:10px;
     margin-left: 10px;
 }
-.card {
-    position: relative;
-    width: 40rem;
-    height: 100%;
-    display: table-cell;
-
-}
-
-.card-img-top {
-    width: 190px;
-    height: 200px;
-}
 
 .col {
     margin-bottom: 30px;
 }
-#przycisk {
-    position: absolute;
-    bottom: 0px;
-    width: 250px;
-    left: 12%;
-}
-
-.card-body{
-    padding-top: 15px;
-    padding-left: 10px;
-    width: 250px;
-    height: 80px;
-}
-
-.card-title {
-    font-weight: bold;
-}
-
-
-.grid2x2 {
-    min-height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-
-  }
-  .grid2x2 > div {
-    display: flex; 
-    flex-basis: calc(34% - 15px);  
-    justify-content: center;
-    flex-direction: column;
-  }
-  .grid2x2 > div > div {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-  }
-
-  .box { margin: 15px; }
-  .box1 { background-color: rgb(255, 255, 255); color: rgb(206, 82, 10)}
-
-.boxin {
-    height: 100%;
-}
-
 
 .btn.btn-warning {
     min-width: 100%;
     text-align: center;
     padding: 25%;
-    
 }
 
-
-
-
-
 #navbarleft{
-
     float: left;
     color: #fd4901dc;
-
-
-
-    
 }
 #cena{
     color: black;
@@ -100,15 +33,13 @@
     float:right;
 }
 
+#navbarright :hover{
+    color: rgba(253, 73, 1, 0.863)
+}
+
 .card-img-top{
     width: 100px;
     height: 100px;
-}
-
-
-
-#navbarright :hover{
-    color: rgba(253, 73, 1, 0.863)
 }
 
 .material-icons {
@@ -116,11 +47,6 @@
     display: table-cell;
     padding-left: 10px;
 }
-
-#kontakt{
-    margin-bottom: 10px;
-}
-
 
 .img-responsive{
     display: block;

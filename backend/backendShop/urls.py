@@ -26,4 +26,7 @@ urlpatterns = [
     # url(r'api/v2/', include(router.urls)),
     path('cart/', include('cart.urls')),
     path('',include('shop.urls')),
+
+    path(r'^accounts/', include('allauth.urls')),
+    path('users/',include('users.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

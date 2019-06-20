@@ -34,10 +34,15 @@ ALLOWED_HOSTS = ['effectsshop.herokuapp.com','127.0.0.1','localhost']
 INSTALLED_APPS = [
     'shop',
     'cart',
-    'bootstrap3',
+    'users',
 
+    'bootstrap3',
+    'allauth',
+    'allauth.account',
     'rest_framework',
     'corsheaders',
+
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization
