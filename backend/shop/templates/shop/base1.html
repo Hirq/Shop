@@ -35,14 +35,21 @@
                     <img class="card-img-top" src="https://pbs.twimg.com/profile_images/946294409037058048/b56R6fiH_400x400.jpg" alt="Card image cap">
                 </a>
             <div id="navbarright">
-                <a class="navbar-brand" href="http://localhost:8000/cart/"> 
+                <a class="navbar-brand" href="{% url 'cart:cart_detail' %}"> 
                     <i class="material-icons">shopping_basket</i>
                     Koszyk
                 </a>
-                <a class="navbar-brand" href="http://localhost:8000/users/login/"> 
+                {% if request.user.is_authenticated %}
+                <a class="navbar-brand" href="{% url 'users:logout' %}"> 
+                    <i class="material-icons">portrait</i>
+                    Wyloguj
+                </a>
+                {% else %}
+                <a class="navbar-brand" href="{% url 'users:login' %}"> 
                     <i class="material-icons">portrait</i>
                     Zaloguj
                 </a>
+                {% endif %}
             </div>
         </nav>
 
@@ -54,7 +61,7 @@
             {% with total_items=cart|length %}
                 {% if cart|length > 0 %}
                     Your cart: 
-                    <a id="cena" href="{% url "cart_detail" %}">
+                    <a id="cena" href="{% url "cart:cart_detail" %}">
                         {{ total_items }} item{{ total_items|pluralize }},
                         ${{ cart.get_total_price }}
                     </a>

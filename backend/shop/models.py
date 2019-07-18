@@ -1,5 +1,6 @@
 from django.urls import reverse
 from django.db import models
+from django.contrib.auth.models import User
 
 class Effect(models.Model):
 
@@ -8,6 +9,7 @@ class Effect(models.Model):
         ('OCT','OCTAVER'),
         ('COM','COMPRESOR'),
     )
+    who = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     effect_id = models.AutoField(primary_key=True)
     effect_name = models.CharField(max_length=80)
     effect_price = models.IntegerField(default=50)

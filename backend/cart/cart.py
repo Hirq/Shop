@@ -5,6 +5,7 @@ from django.conf import settings
 from shop.models import Effect
 
 
+
 class Cart(object):
     def __init__(self, request):
         """
@@ -74,7 +75,7 @@ class Cart(object):
     def get_total_price(self):
         return sum(Decimal(item['effect_price']) * item['quantity'] for item in self.cart.values())
 
-    def clear(self):
-        # remove cart from session
-        del self.session[settings.CART_SESSION_ID]
-        self.session.modified = True
+    # def clear(self):
+    #     # remove cart from session
+    #     del self.session[settings.CART_SESSION_ID]
+    #     self.session.modified = True

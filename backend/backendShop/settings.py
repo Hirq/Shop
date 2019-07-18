@@ -26,7 +26,7 @@ SECRET_KEY = '5*%@o#@4os7sbr9=2)pz-wiz0=j8@oz1*lp&a_mf7akh=x_rd*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['effectsshop.herokuapp.com','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['effectsshop.herokuapp.com','127.0.0.1','localhost', '1fd89875.ngrok.io']
 
 
 # Application definition
@@ -159,3 +159,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR)
 # }
 
 CART_SESSION_ID = 'cart'
+SITE_ID = 1

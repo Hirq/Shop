@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <form action="{% url "cart_add" product.effect_id %}" method="post">
+                        <form action="{% url "cart:cart_add" product.effect_id %}" method="post">
                             {% csrf_token %}
                             {% bootstrap_form cart_product_form %}
                             {% buttons %}

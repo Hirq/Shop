@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
 from shop.models import Effect
 from .cart import Cart
 from .forms import CartAddEffectForm
-
 
 @require_POST
 def cart_add(request, product_id):
@@ -16,19 +16,16 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
-    return redirect('cart_detail')
-
+    return redirect('cart:cart_detail')
 
 def cart_remove(request, product_id):
     cart = Cart(request)
     product = get_object_or_404(Effect, effect_id=product_id)
     cart.remove(product)
-    return redirect('cart_detail')
-
+    return redirect('cart:cart_detail')
 
 def cart_detail(request):
     cart = Cart(request)
-    # 使用 for in 的時候，他會開始迭代，並且呼叫 `__iter__`
     for item in cart:
         item['update_quantity_form'] = CartAddEffectForm(
             initial={
