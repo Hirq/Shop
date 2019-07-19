@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate, login
-from .forms import UsersLoginForm, UsersRegisterForm
+from .forms import UsersLoginForm, UsersRegisterForm, UserShipmentForm, UpdateForm
 from django.contrib.auth import logout
 from django.http import HttpResponseRedirect
 from django.conf import settings
+from .models import UserAccount
+from django.views.generic.edit import UpdateView
+
 
 
 def login_view(request):
@@ -45,3 +48,26 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect('/')
 
+# def account_view(request):
+#     return render(request, 'users/account_form.html')
+
+def account_view(request):
+    if request.method == "POST":
+        form = UserShipmentForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+
+            return redirect('/')
+    else:
+        form = UserShipmentForm(instance=request.user)
+
+    return render(request, 'users/account_update_form.html', {'form': form})
+
+# class update_account(UpdateView):
+#     current_user = request.user
+#     model = UserAccount
+#     form_class = UpdateForm
+
+#     template_name_suffix = '_update_form'

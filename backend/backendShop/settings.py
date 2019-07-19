@@ -160,3 +160,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR)
 
 CART_SESSION_ID = 'cart'
 SITE_ID = 1
+AUTH_USER_MODEL = "users.UserAccount" 

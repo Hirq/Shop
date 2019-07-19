@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, get_user_model
 from django import forms
-
+from .models import UserAccount 
 User = get_user_model()
 
 class UsersLoginForm(forms.Form):
@@ -84,3 +84,31 @@ class UsersRegisterForm(forms.ModelForm):
 
         return super(UsersRegisterForm, self).clean(*args, **keyargs)
 
+class UserShipmentForm(forms.ModelForm):
+    class Meta:
+        model = UserAccount
+        fields = [
+            "ulica",
+            "numer_domu",
+            "kod_pocztowy",
+            "miasto",
+            "telefon"
+        ]
+
+
+class UpdateForm(forms.ModelForm):
+    class Meta:
+        model = UserAccount
+        fields = ['ulica', 'numer_domu', 'kod_pocztowy', 'miasto', 'telefon']
+
+    def __init__(self, *args, **kwargs):
+        super(UpdateForm, self).__init__(*args, **kwargs)
+        self.fields['quest_name'].widget.attrs.update({
+            'class': 'form-control',
+            'name': 'quest_name'})
+        self.fields['quest_text'].widget.attrs.update({
+            'class': 'form-control',
+            'name': 'quest_text'})
+        self.fields['levels'].widget.attrs.update({
+            'class': 'form-control',
+            'name': 'levels'})

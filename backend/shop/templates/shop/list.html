@@ -6,7 +6,11 @@
 {% endblock %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
+    {{ user.username }}
+{% else %}
+    Not logged in.
+{% endif %}
     <!-- <div class="row">
         <div class="col-md-3">
             <h3>Categories</h3>
