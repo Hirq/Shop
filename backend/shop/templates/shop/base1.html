@@ -10,55 +10,81 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'cart/style.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'cart/style.css?version=1' %}"> 
     <!-- {% bootstrap_css %} -->
     {% bootstrap_javascript %}
 </head>
 
 <body>
 
-    <nav class="navbar navbar-light" style="color: rgba(253, 73, 1, 0.863)">
-            <div id="navbarleft">
-                <div>
-                    <a class="navbar-brand"  href="http://localhost:4200/efekty" style="color: #fd4901dc">
-                        Efekty
-                    </a>
-                </div>
-                <div>
-                    <a class="navbar-brand"  href="http://localhost:4200/gitary">
-                        Gitary
-                    </a>
-                </div>
-            </div>
-        
-                <a class="navbar-brand" href="http://localhost:4200/efekty">
-                    <img class="card-img-top" src="https://pbs.twimg.com/profile_images/946294409037058048/b56R6fiH_400x400.jpg" alt="Card image cap">
-                </a>
-            <div id="navbarright">
-                <a class="navbar-brand" href="{% url 'cart:cart_detail' %}"> 
-                    <i class="material-icons">shopping_basket</i>
-                    Koszyk
-                </a>
-                {% if request.user.is_authenticated %}
-                <a class="navbar-brand" href="{% url 'users:account_update_form' %}"> 
-                    <i class="material-icons">assignment_ind</i>
-                    Konto
-                </a>
-                
-                <a class="navbar-brand" href="{% url 'users:logout' %}"> 
-                    <i class="material-icons">portrait</i>
-                    Wyloguj
-                </a>
-                {% else %}
-                <a class="navbar-brand" href="{% url 'users:login' %}"> 
-                    <i class="material-icons">portrait</i>
-                    Zaloguj
-                </a>
-                {% endif %}
-            </div>
-        </nav>
 
-<div class="container" >
+{% if request.user.is_authenticated %}
+    <nav class="navbar navbar-light" style="color: #fd4901dc">
+        <div id="navbarleft">
+            <div>
+                <a class="navbar-brand"  href="http://localhost:4200/efekty" style="color: #fd4901dc">
+                    Effect
+                </a>
+            </div>
+            <div>
+                <a class="navbar-brand"  href="http://localhost:4200/gitary">
+                    Guitar
+                </a>
+            </div>
+        </div> 
+        <a class="navbar-brand" href="http://localhost:4200/efekty" style="margin-left: 20%;">
+            <img class="card-img-top" src="{% static "img/logo.png" %}" alt="Logo">
+        </a>
+        <div id="navbarright">
+            <a class="navbar-brand" href="{% url 'cart:cart_detail' %}" > 
+                <i class="material-icons" style="padding-left: 2px;">shopping_basket</i>
+                Cart
+            </a>
+            
+            <a class="navbar-brand" href="{% url 'users:account_update_form' %}"> 
+                <i class="material-icons" style="padding-left: 12px;">assignment_ind</i>
+                Account
+            </a>
+            
+            <a class="navbar-brand" href="{% url 'users:logout' %}"> 
+                <i class="material-icons" style="padding-left: 9px;">portrait</i>
+                Logout
+            </a>
+        </div>
+    </nav>
+{% else %}   
+    <nav class="navbar navbar-light" style="color: #fd4901dc">
+        <div id="navbarleft">
+            <div>
+                <a class="navbar-brand"  href="http://localhost:4200/efekty" style="color: #fd4901dc">
+                    Effect
+                </a>
+            </div>
+            <div>
+                <a class="navbar-brand"  href="http://localhost:4200/gitary">
+                    Guitar
+                </a>
+            </div>
+        </div> 
+        <a class="navbar-brand" href="http://localhost:4200/efekty" style="margin-left: 11%;">
+            <img class="card-img-top" src="{% static "img/logo.png" %}" alt="Logo">
+        </a>
+        <div id="navbarright">
+            <a class="navbar-brand" href="{% url 'cart:cart_detail' %}" > 
+                <i class="material-icons" style="padding-left: 2px;">shopping_basket</i>
+                Cart
+            </a>
+            <a class="navbar-brand" href="{% url 'users:login' %}"> 
+                <i class="material-icons" style="padding-left: 5px;">portrait</i>
+                Login
+            </a>
+        </div>
+    </nav>
+{% endif %}
+
+
+
+<div class="container">
     
     <div class="panel panel-default" >
         <div class="panel-heading" style="text-align: center">
@@ -79,6 +105,31 @@
 
     {% block content %}
     {% endblock %}
+    <footer class="footer">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="footer-name"> Informacje </br> </div>
+                    <a href="{% url "statue" %}"> Regulamin sklepu </a> </br>
+                    <a href="{% url "policy" %}"> Polityka prywatności </a> </br>
+                    <a href="{% url "delivery" %}"> Dostawa i płatności </a>
+                </div>
+                <div class="col-md-4">
+                        <div id="footer-name"> Kontakt </br> </div>
+                        888777999</br>
+                        efektyteitamte@gmail.com</br>
+                        <a href="{% url "contact" %}"> Formularz </a>
+                </div>
+                <div class="col-md-4">
+                    <div id="footer-name"> Informacje o sklepie </br> </div>
+                    Mickiewicza 3/15</br>
+                    Koszalin 75-100</br>
+                    Polska
+                </div>
+            </div>
+    </footer>
 </div>
+
+
 </body>
+
 </html>

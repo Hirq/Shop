@@ -88,27 +88,30 @@ class UserShipmentForm(forms.ModelForm):
     class Meta:
         model = UserAccount
         fields = [
-            "ulica",
-            "numer_domu",
-            "kod_pocztowy",
-            "miasto",
-            "telefon"
+            "full_name",
+            "street",
+            "number_house",
+            "post_code",
+            "city",
+            "phone"
         ]
-
-
-class UpdateForm(forms.ModelForm):
-    class Meta:
-        model = UserAccount
-        fields = ['ulica', 'numer_domu', 'kod_pocztowy', 'miasto', 'telefon']
-
     def __init__(self, *args, **kwargs):
-        super(UpdateForm, self).__init__(*args, **kwargs)
-        self.fields['quest_name'].widget.attrs.update({
+        super(UserShipmentForm, self).__init__(*args, **kwargs)
+        self.fields['full_name'].widget.attrs.update({
             'class': 'form-control',
-            'name': 'quest_name'})
-        self.fields['quest_text'].widget.attrs.update({
+            'name': 'full_name'})
+        self.fields['street'].widget.attrs.update({
             'class': 'form-control',
-            'name': 'quest_text'})
-        self.fields['levels'].widget.attrs.update({
+            'name': 'street'})
+        self.fields['number_house'].widget.attrs.update({
             'class': 'form-control',
-            'name': 'levels'})
+            'name': 'number_house'})
+        self.fields['post_code'].widget.attrs.update({
+            'class': 'form-control',
+            'name': 'post_code'})
+        self.fields['city'].widget.attrs.update({
+            'class': 'form-control',
+            'name': 'city'})
+        self.fields['phone'].widget.attrs.update({
+            'class': 'form-control',
+            'name': 'phone'})

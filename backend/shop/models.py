@@ -26,3 +26,12 @@ class Effect(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail',
                        args=[self.effect_id, self.slug])
+
+
+class Message(models.Model):
+    name = models.CharField(max_length=250)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return "message from {name}".format(name=self.name)

@@ -1,0 +1,15 @@
+{% extends "shop/base1.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<p> KONTAKT </p>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Wyślij</button>
+    </form>
+
+{% endblock %}

@@ -7,13 +7,14 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-7">
 
             <div class="col-md-9 col-md-4">
                 <div class="thumbnail">
-                    <img src="{% if product.image %}{{ product.image.url }}
+                    <img src="{% if product.effect_photo %}{{ product.effect_photo.url }}
                               {% else %}{% static "img/no_image.png" %}{% endif %}"
-                         class="img-responsive">
+                         class="img-responsive" style="width: 350px;
+                         height: 350px;">
                     <div class="caption">
                         <div class="row">
                             <div class="col-md-6 col-xs-6">
@@ -41,7 +42,7 @@
             </div>
 
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
                 {{ product.effect_description }}
         </div>
     </div>
