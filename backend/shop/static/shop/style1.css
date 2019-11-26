@@ -1,0 +1,50 @@
+#containerMain{
+    width: 2000px;
+  }
+
+  .card-img-top{
+    width: 100px;
+    height: 100px;
+}
+  
+  #list {
+      width: 20%;
+      float: left;
+  
+  }
+  
+  #elements {
+      width: 75%;
+      float:right;
+      max-width: 1500px;
+  }
+  
+  .card {
+      width: 330px;
+      margin-bottom: 35px;
+      height: 100%;
+
+  }
+  
+  .card-img-top2 {
+      width: 300px;
+      height: 300px;
+  }
+  
+  #przycisk {
+      bottom: 0;
+      margin-bottom: 20px;
+      width: 90%;
+      position: absolute;
+  }
+  
+  .col {
+      margin-bottom: 30px;
+  }
+  
+  
+  a.list-group-item-action.active {
+    background-color: orange ;
+    color: black;
+    border-color: black;
+  }
