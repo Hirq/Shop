@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'cart/style.css?version=1' %}"> 
     <!-- {% bootstrap_css %} -->
     {% bootstrap_javascript %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,12 +26,12 @@
         <div id="navbarleft">
             <div>
                 <a class="navbar-brand"  href="http://localhost:4200/efekty" style="color: #fd4901dc">
-                    Effect
+                    {% comment %} Effect {% endcomment %}
                 </a>
             </div>
             <div>
                 <a class="navbar-brand"  href="http://localhost:4200/gitary">
-                    Guitar
+                    {% comment %} Guitar {% endcomment %}
                 </a>
             </div>
         </div> 
@@ -57,16 +60,16 @@
         <div id="navbarleft">
             <div>
                 <a class="navbar-brand"  href="http://localhost:4200/efekty" style="color: #fd4901dc">
-                    Effect
+                    {% comment %} Effect {% endcomment %}
                 </a>
             </div>
             <div>
                 <a class="navbar-brand"  href="http://localhost:4200/gitary">
-                    Guitar
+                    {% comment %} Guitar {% endcomment %}
                 </a>
             </div>
         </div> 
-        <a class="navbar-brand" href="http://localhost:8000" style="margin-left: 11%;">
+        <a class="navbar-brand" href="{% url 'product_list' %}" style="margin-left: 11%;">
             <img class="card-img-top" src="{% static "img/logo.png" %}" alt="Logo">
         </a>
         <div id="navbarright">
@@ -105,7 +108,7 @@
 
     {% block content %}
     {% endblock %}
-    <footer class="footer">
+    {% comment %} <footer class="footer">
             <div class="row">
                 <div class="col-md-4">
                     <div id="footer-name"> Informacje </br> </div>
@@ -126,7 +129,7 @@
                     Polska
                 </div>
             </div>
-    </footer>
+    </footer> {% endcomment %}
 </div>
 
 
