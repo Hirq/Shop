@@ -2,16 +2,12 @@
 
 {% load staticfiles %}
 
-{% block title %}
-    {% if category %}{{ category.name }}{% else %}Products{% endif %}
-{% endblock %}
-
 {% block content %}
-{% if user.is_authenticated %}
+{% comment %} {% if user.is_authenticated %}
     {{ user.username }}
 {% else %}
     Not logged in.
-{% endif %}
+{% endif %} {% endcomment %}
 
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'shop/style1.css?version=1' %}"> 
@@ -30,52 +26,21 @@
     <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
       <div class="container" id="elements">
         <div class="row">
-          <div class="col">
-              <div class="card">
-                  <img class="card-img-top2" src="https://static2.redcart.pl/templates/images/thumb/388/600/1200/pl/0/templates/images/products/388/5c4cbe5f551cc05ec567c8f22797170d.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Ibanez Tube Sceamer</h5>
-                    <h6 class="card-subtitle">90$</h6>
-                    <p class="card-text">Charaketerystyczny dźwiek dla tubescmerow, sygnał modulowany w sposób symetryczny.</p>
-                    <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
-                  </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card">
-                  <img class="card-img-top2" src="https://static5.redcart.pl/templates/images/thumb/17512/1500/1500/pl/0/templates/images/products/17512/7f711be15ce679c1fa4e66502d5014ae.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">MXR Compressor</h5>
-                    <h6 class="card-subtitle">70$</h6>
-                    <p class="card-text">PodstatwowPodstatwowPodstatwowPodstatwowPodstatwowPodstatwowPodstatwowPodstatwowPodstatwowPodstatwowPodstatwowPodstatwow
-                        PodstatwowPodstatwowPodstatwowPodstatwowPodstatwow
-                        
-                        PodstatwowPodstatwowPodstatwowy kompresor dla kazdego gitarzysty.</p>
-                    <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
-                  </div>
-                </div>
-          </div>
-          <div class="w-100"></div>
-          <div class="col">
-              <div class="card">
-                  <img class="card-img-top2" src="http://musicexpert.pl/12451-thickbox_default/tc-electronic-subnup-octaver-efekt-gitarowy.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Subnup Octaver</h5>
-                    <p class="card-text">Podwyższa sygnał podstawowy o dwie oktawy w góre.</p>
-                    <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
-                  </div>
-              </div>
-          </div>
-          <div class="col">
+          {% for effect in products %}
+            <div class="col">
                 <div class="card">
-                    <img class="card-img-top2" src="http://musicexpert.pl/12451-thickbox_default/tc-electronic-subnup-octaver-efekt-gitarowy.jpg" alt="Card image cap">
+                    <img class="card-img-top2"  src= "{{effect.effect_photo.url}}" alt="Card image cap">
                     <div class="card-body">
-                      <h5 class="card-title">Subnup Octaver</h5>
-                      <p class="card-text">Podwyższa sygnał podstawowy o dwPodwyższa sygnał podstawowy o 2 oktawy.</p>
-                      <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                      <h5 class="card-title">{{effect.effect_name}}</h5>
+                      <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                      <p class="card-text">{{effect.effect_description}}</p>
+                      <a href="{{effect.effect_id}}/1/">
+                        <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                      </a>
                     </div>
                 </div>
-          </div>
+            </div>
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -84,18 +49,23 @@
     <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
       <div class="container" id="elements">
         <div class="row">
-          <div class="col">
-              <div class="card">
-                  <img class="card-img-top2" src="https://static2.redcart.pl/templates/images/thumb/388/600/1200/pl/0/templates/images/products/388/5c4cbe5f551cc05ec567c8f22797170d.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">Ibanez Tube Sceamer</h5>
-                    <h6 class="card-subtitle">90$</h6>
-                    <p class="card-text">Charaketerystyczny dźwiek dla tubescmerow, sygnał modulowany w sposób symetryczny.</p>
-                    <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+          {% for effect in products %}
+            {% if effect.effect_group == "DIS" %}
+              <div class="col">
+                  <div class="card">
+                      <img class="card-img-top2"  src="{{ effect.effect_photo.url }}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">{{effect.effect_name}}</h5>
+                        <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                        <p class="card-text">{{effect.effect_description}}</p>
+                        <a href="{{effect.effect_id}}/1/">
+                          <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                        </a>    
+                    </div>
                   </div>
               </div>
-          </div>
-
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -103,17 +73,23 @@
     <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
       <div class="container" id="elements">
         <div class="row">
-          <div class="col">
-              <div class="card">
-                  <img class="card-img-top2" src="https://static2.redcart.pl/templates/images/thumb/388/600/1200/pl/0/templates/images/products/388/5c4cbe5f551cc05ec567c8f22797170d.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">1111</h5>
-                    <h6 class="card-subtitle">92220$</h6>
-                    <p class="card-text">Charaketerystyczny dźwiek dla tubescmerow, sygnał modulowany w sposób symetryczny.</p>
-                    <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+          {% for effect in products %}
+            {% if effect.effect_group == "COM" %}
+              <div class="col">
+                  <div class="card">
+                      <img class="card-img-top2"  src="{{ effect.effect_photo.url }}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">{{effect.effect_name}}</h5>
+                        <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                        <p class="card-text">{{effect.effect_description}}</p>
+                        <a href="{{effect.effect_id}}/1/">
+                          <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                        </a>
+                    </div>
                   </div>
               </div>
-          </div>
+            {% endif %}
+          {% endfor %}
 
         </div>
       </div>
@@ -122,17 +98,23 @@
     <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
       <div class="container" id="elements">
         <div class="row">
-          <div class="col">
-              <div class="card">
-                  <img class="card-img-top2" src="https://static2.redcart.pl/templates/images/thumb/388/600/1200/pl/0/templates/images/products/388/5c4cbe5f551cc05ec567c8f22797170d.jpg" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 class="card-title">1111</h5>
-                    <h6 class="card-subtitle">92220$</h6>
-                    <p class="card-text">Charaketerystyczny dźwiek dla tubescmerow, sygnał modulowany w sposób symetryczny.</p>
-                    <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+          {% for effect in products %}
+            {% if effect.effect_group == "OCT" %}
+              <div class="col">
+                  <div class="card">
+                      <img class="card-img-top2"  src="{{ effect.effect_photo.url }}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">{{effect.effect_name}}</h5>
+                        <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                        <p class="card-text">{{effect.effect_description}}</p>
+                        <a href="{{effect.effect_id}}/1/">
+                          <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                        </a>
+                      </div>
                   </div>
               </div>
-          </div>
+            {% endif %}
+          {% endfor %}
 
         </div>
       </div>

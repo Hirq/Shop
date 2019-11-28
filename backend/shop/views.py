@@ -8,7 +8,7 @@ from cart.forms import CartAddEffectForm
 from .forms import MessageForm
 
 class EffectList(generic.ListView):
-    template_name = 'shop/index.html'
+    template_name = 'shop/list1.html'
     context_object_name = 'firstlist'
 
     def get_queryset(self):
@@ -16,7 +16,7 @@ class EffectList(generic.ListView):
 
 
 class DistortionEffectList(generic.ListView):
-    template_name = 'shop/distortion.html'
+    template_name = 'shop/list1.html'
     context_object_name = 'distlist'
 
     def get_queryset(self):

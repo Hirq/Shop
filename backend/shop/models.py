@@ -17,7 +17,7 @@ class Effect(models.Model):
     effect_description = models.CharField(max_length=400)
     effect_count = models.IntegerField(default=1)
     effect_group = models.CharField(max_length=3, choices=Levels)
-    effect_photo = models.ImageField(upload_to='images', blank=True, null=True)
+    effect_photo = models.ImageField(upload_to='images/', blank=True, null=True)
     slug = models.SlugField(max_length=200, db_index=True, default=1)
 
     def __str__(self):
