@@ -17,7 +17,7 @@ class Effect(models.Model):
     effect_description = models.CharField(max_length=400)
     effect_count = models.IntegerField(default=1)
     effect_group = models.CharField(max_length=3, choices=Levels)
-    effect_photo = models.ImageField(upload_to='images', blank=True, null=True)
+    effect_photo = models.ImageField(upload_to='images/', blank=True, null=True)
     slug = models.SlugField(max_length=200, db_index=True, default=1)
 
     def __str__(self):
@@ -26,3 +26,12 @@ class Effect(models.Model):
     def get_absolute_url(self):
         return reverse('product_detail',
                        args=[self.effect_id, self.slug])
+
+
+class Message(models.Model):
+    name = models.CharField(max_length=250)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return "message from {name}".format(name=self.name)

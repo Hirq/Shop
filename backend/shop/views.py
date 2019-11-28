@@ -1,14 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.http import HttpResponse
 from .models import Effect
 from django.views import generic
 from django.shortcuts import render, get_object_or_404
 from cart.forms import CartAddEffectForm
-
+from .forms import MessageForm
 
 class EffectList(generic.ListView):
-    template_name = 'shop/index.html'
+    template_name = 'shop/list1.html'
     context_object_name = 'firstlist'
 
     def get_queryset(self):
@@ -16,7 +16,7 @@ class EffectList(generic.ListView):
 
 
 class DistortionEffectList(generic.ListView):
-    template_name = 'shop/distortion.html'
+    template_name = 'shop/list1.html'
     context_object_name = 'distlist'
 
     def get_queryset(self):
@@ -53,3 +53,25 @@ def product_detail(request, product_id, slug):
                   'shop/detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form})
+
+def view_statue(request):
+    return render(request, 'shop/statue.html')
+
+def view_policy(request):
+    return render(request, 'shop/privacy_policy.html')
+
+def view_delivery(request):
+    return render(request, 'shop/delivery.html')
+
+def contact_form(request):
+    if request.method == "POST":
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+
+            return redirect('/')
+    else:
+        form = MessageForm()
+
+    return render(request, 'shop/contact.html', {'form': form})

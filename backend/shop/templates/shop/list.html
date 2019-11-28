@@ -1,17 +1,132 @@
 {% extends "shop/base1.html" %}
+
 {% load staticfiles %}
 
-{% block title %}
-    {% if category %}{{ category.name }}{% else %}Products{% endif %}
-{% endblock %}
-
 {% block content %}
-{% if user.is_authenticated %}
+{% comment %} {% if user.is_authenticated %}
     {{ user.username }}
 {% else %}
     Not logged in.
-{% endif %}
-    <!-- <div class="row">
+{% endif %} {% endcomment %}
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'shop/style1.css?version=1' %}"> 
+
+<div class="container-fluid" style="margin-bottom:40px;">
+
+  <div class="container" id="list">
+      <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">All</a>
+          <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Distortion</a>
+          <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Compresor</a>
+          <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Octave</a>
+      </div>
+  </div>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+      <div class="container" id="elements">
+        <div class="row">
+          {% for effect in products %}
+            <div class="col">
+                <div class="card">
+                    <img class="card-img-top2"  src= "{{effect.effect_photo.url}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">{{effect.effect_name}}</h5>
+                      <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                      <p class="card-text">{{effect.effect_description}}</p>
+                      <a href="{{effect.effect_id}}/1/">
+                        <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                      </a>
+                    </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+      <div class="container" id="elements">
+        <div class="row">
+          {% for effect in products %}
+            {% if effect.effect_group == "DIS" %}
+              <div class="col">
+                  <div class="card">
+                      <img class="card-img-top2"  src="{{ effect.effect_photo.url }}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">{{effect.effect_name}}</h5>
+                        <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                        <p class="card-text">{{effect.effect_description}}</p>
+                        <a href="{{effect.effect_id}}/1/">
+                          <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                        </a>    
+                    </div>
+                  </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+      <div class="container" id="elements">
+        <div class="row">
+          {% for effect in products %}
+            {% if effect.effect_group == "COM" %}
+              <div class="col">
+                  <div class="card">
+                      <img class="card-img-top2"  src="{{ effect.effect_photo.url }}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">{{effect.effect_name}}</h5>
+                        <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                        <p class="card-text">{{effect.effect_description}}</p>
+                        <a href="{{effect.effect_id}}/1/">
+                          <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                        </a>
+                    </div>
+                  </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+      <div class="container" id="elements">
+        <div class="row">
+          {% for effect in products %}
+            {% if effect.effect_group == "OCT" %}
+              <div class="col">
+                  <div class="card">
+                      <img class="card-img-top2"  src="{{ effect.effect_photo.url }}" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title">{{effect.effect_name}}</h5>
+                        <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                        <p class="card-text">{{effect.effect_description}}</p>
+                        <a href="{{effect.effect_id}}/1/">
+                          <button _ngcontent-c4="" class="btn btn-secondary btn-block" id="przycisk">Add to Cart</button>
+                        </a>
+                      </div>
+                  </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+{% comment %} 
+<div class="row">
         <div class="col-md-3">
             <h3>Categories</h3>
             <ul class="nav nav-pills nav-stacked">
@@ -38,5 +153,6 @@
                 {% endfor %}
             </div>
         </div>
-    </div> -->
+    </div> 
+     {% endcomment %}
 {% endblock %}

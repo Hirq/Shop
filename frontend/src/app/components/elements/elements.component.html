@@ -2,28 +2,28 @@
   <div id="navbarleft">
     <div>
       <a class="navbar-brand"  href="efekty" style="color: #fd4901dc">
-        Efekty
+        Effect
       </a>
     </div>
     <div>
         <a class="navbar-brand"  href="gitary">
-        Gitary
+        Guitar
         </a>
     </div>
     </div>
 
-    <a class="navbar-brand" href="efekty" >
-      <img class="card-img-top" src="https://pbs.twimg.com/profile_images/946294409037058048/b56R6fiH_400x400.jpg" alt="Card image cap">
+    <a class="navbar-brand" href="efekty" style="padding-left: 10%;">
+      <img class="card-img-top" src="../../../assets/img/logo.png" alt="Card image cap">
     </a>
 
     <div id="navbarright">
     <a class="navbar-brand" href="http://localhost:8000/cart/"> 
       <mat-icon>shopping_basket</mat-icon>
-      Koszyk
+      Cart
     </a>
     <a class="navbar-brand" href="http://localhost:8000/users/login/">
       <mat-icon>portrait</mat-icon>
-        Zaloguj
+        Login
     </a>
   </div>
 
@@ -35,7 +35,7 @@
 
 
     
-    <mat-tab label="Wszystko"> 
+    <mat-tab label="All"> 
         <div class="grid2x2">
             <div *ngFor="let effect of effects">
                 <div class="box box1 ">
@@ -43,11 +43,10 @@
                         <img class="card-img-top" src={{effect.effect_photo}}  alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{effect.effect_name}}</h5>
-                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
+                            <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
                             <div>
                                 <a class="navbar-brand"  href="http://localhost:8000/{{effect.effect_id}}/1/">
-                                KUP
-                                <mat-icon>shopping_basket</mat-icon>
+                                <mat-icon style="font-size: 25px; color:#fd4901dc; padding-left: 10px;">shopping_basket</mat-icon>
                                 </a>
                             </div>
                             
@@ -66,8 +65,12 @@
                         <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{effect.effect_name}}</h5>
-                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
-                            <mat-icon>shopping_basket</mat-icon>
+                            <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                            <div>
+                                <a class="navbar-brand"  href="http://localhost:8000/{{effect.effect_id}}/1/">
+                                <mat-icon style="font-size: 25px; color:#fd4901dc;padding-left: 10px;">shopping_basket</mat-icon>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,8 +86,12 @@
                         <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{effect.effect_name}}</h5>
-                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
-                            <mat-icon>shopping_basket</mat-icon>
+                            <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                            <div>
+                                <a class="navbar-brand"  href="http://localhost:8000/{{effect.effect_id}}/1/">
+                                <mat-icon style="font-size: 25px; color:#fd4901dc;padding-left: 10px;">shopping_basket</mat-icon>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,8 +107,12 @@
                         <img class="card-img-top" src={{effect.effect_photo}} alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{effect.effect_name}}</h5>
-                            <h6 class="card-subtitle">{{effect.effect_price}} PLN</h6>
-                            <mat-icon>shopping_basket</mat-icon>
+                            <h6 class="card-subtitle">{{effect.effect_price}} $</h6>
+                            <div>
+                                <a class="navbar-brand"  href="http://localhost:8000/{{effect.effect_id}}/1/">
+                                <mat-icon style="font-size: 25px; color:#fd4901dc;padding-left: 10px;">shopping_basket</mat-icon>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

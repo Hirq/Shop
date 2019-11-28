@@ -25,9 +25,9 @@
                         <tr>
                             <td class="col-sm-8 col-md-6">
                                 <div class="media">
-                                    <a class="thumbnail pull-left" href="{{ product.get_absolute_url }}">
+                                    <a class="thumbnail pull-left" href="{{ product.get_absolute_url }}" >
                                         <img class="media-object"
-                                             src="{% if product.image %}{{ product.image.url }}
+                                             src="{% if product.effect_photo %}{{ product.effect_photo.url }}
                                                   {% else %}{% static "img/no_image.png" %}{% endif %}"
                                              style="width: 72px; height: 72px;">
                                     </a>
@@ -74,13 +74,13 @@
                     <td>  </td>
                     <td>  </td>
                     <td>
-                        <a href="http://localhost:4200/efekty" class="btn btn-default">
+                        <a href="{% url 'list' %}" class="btn btn-default">
                             Continue Shopping <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
                         </a>
                     </td>
                     <td>
-                            <a href="http://localhost:4200/efekty" class="btn btn-default">
-                                Kup<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+                            <a href="{% url 'delivery' %}" class="btn btn-default">
+                                Buy<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
                             </a>
                     </td>
                 </tr>
